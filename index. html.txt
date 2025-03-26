@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giant Dogs Ug - Security Dogs, Training & Pet Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS will be placed here */
+        :root {
+            --primary: #4a6b2a;
+            --secondary: #f8a41b;
+            --light: #f4f4f4;
+            --dark: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e69500;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 0 auto 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .about-text h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/26784607385" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span>Giant</span> Dogs Ug
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Security Dogs & Pet Services</h1>
+                <p>Your trusted partner for quality security dogs, training, grooming, veterinary services and pet accessories in Uganda</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="https://wa.me/26784607385" class="btn btn-outline">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive services to meet all your canine needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Security Dogs">
+                    </div>
+                    <div class="service-content">
+                        <h3>Security Dogs</h3>
+                        <p>Highly trained security dogs for personal and commercial protection. We provide various breeds suitable for different security needs.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1583512603806-077998240c7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Training">
+                    </div>
+                    <div class="service-content">
+                        <h3>Dog Training</h3>
+                        <p>Professional training programs for obedience, protection, and specialized skills. We train puppies and adult dogs.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1594149929911-78975a43d4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mobile Vet Clinic">
+                    </div>
+                    <div class="service-content">
+                        <h3>Mobile Vet Clinic</h3>
+                        <p>Comprehensive veterinary services at your doorstep. Vaccinations, check-ups, emergency care and more.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1591769225440-811ad7d6eab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Boarding">
+                    </div>
+                    <div class="service-content">
+                        <h3>Dog Boarding</h3>
+                        <p>Safe and comfortable boarding facilities for when you're away. Your pet will be well cared for in our clean, secure facility.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Grooming">
+                    </div>
+                    <div class="service-content">
+                        <h3>Grooming Services</h3>
+                        <p>Professional grooming to keep your dog clean, healthy and looking their best. Bathing, haircuts, nail trimming and more.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pet Accessories">
+                    </div>
+                    <div class="service-content">
+                        <h3>Pet Accessories</h3>
+                        <p>High-quality collars, leashes, beds, toys, food and other essentials for your canine companion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Giant Dogs Ug</h2>
+                    <p>Giant Dogs Ug is a premier provider of security dogs and comprehensive pet services in Uganda. Founded with a passion for canine excellence, we've grown to become a trusted name in dog training, veterinary care, and pet products.</p>
+                    <p>Our team consists of experienced trainers, veterinarians, and pet care specialists dedicated to providing the highest quality services. We believe in humane training methods and prioritize the health and well-being of every dog in our care.</p>
+                    <p>Whether you need a reliable security dog, professional training for your pet, or quality care while you're away, Giant Dogs Ug is your one-stop solution for all things canine.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1554692918-08fa0fdc9db3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About Giant Dogs Ug">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Quality dogs and pet accessories for your needs</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="German Shepherd Puppies">
+                    </div>
+                    <div class="product-content">
+                        <h3>German Shepherd Puppies</h3>
+                        <p class="product-price">$800 - $1,200</p>
+                        <p>Purebred German Shepherd puppies with excellent pedigree, ideal for security and companionship.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rottweiler Puppies">
+                    </div>
+                    <div class="product-content">
+                        <h3>Rottweiler Puppies</h3>
+                        <p class="product-price">$700 - $1,000</p>
+                        <p>Strong, loyal Rottweiler puppies from champion bloodlines, perfect for protection.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1594149929923-8f1d5b9a9b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Belgian Malinois">
+                    </div>
+                    <div class="product-content">
+                        <h3>Belgian Malinois</h3>
+                        <p class="product-price">$1,000 - $1,500</p>
+                        <p>Highly intelligent and energetic Malinois, excellent for advanced security work.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Accessories">
+                    </div>
+                    <div class="product-content">
+                        <h3>Premium Dog Accessories</h3>
+                        <p class="product-price">From $20</p>
+                        <p>High-quality collars, leashes, training equipment, beds, and grooming supplies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from satisfied customers who have used our services</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The German Shepherd I purchased from Giant Dogs Ug has been an excellent security dog for my business. Their training program is top-notch and the follow-up support is exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John M.">
+                        </div>
+                        <div class="author-info">
+                            <h4>John M.</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Their mobile vet service saved my dog's life when he had an emergency in the middle of the night. The vet was professional, knowledgeable and genuinely cared about my pet."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah K.</h4>
+                            <p>Pet Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I boarded my two dogs with Giant Dogs Ug for two weeks while traveling. The facility was clean, the staff was attentive, and my dogs were happy and healthy when I returned."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David R.">
+                        </div>
+                        <div class="author-info">
+                            <h4>David R.</h4>
+                            <p>Frequent Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for inquiries or to schedule our services</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>123 Canine Road, Kampala, Uganda</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p>+256 700 123456</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>info@giantdogsug.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p>+267 84607385</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                        <select name="service" required>
+                            <option value="">Select Service</option>
+                            <option value="security-dogs">Security Dogs</option>
+                            <option value="puppies">Puppies</option>
+                            <option value="training">Dog Training</option>
+                            <option value="vet">Mobile Vet Clinic</option>
+                            <option value="boarding">Boarding</option>
+                            <option value="grooming">Grooming</option>
+                            <option value="accessories">Pet Accessories</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Giant Dogs Ug</h3>
+                    <p>Your trusted partner for quality security dogs and comprehensive pet services in Uganda.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Security Dogs</a></li>
+                        <li><a href="#">Dog Training</a></li>
+                        <li><a href="#">Mobile Vet Clinic</a></li>
+                        <li><a href="#">Dog Boarding</a></li>
+                        <li><a href="#">Grooming</a></li>
+                        <li><a href="#">Pet Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Canine Road, Kampala</li>
+                        <li><i class="fas fa-phone-alt"></i> +256 700 123456</li>
+                        <li><i class="fab fa-whatsapp"></i> +267 84607385</li>
+                        <li><i class="fas fa-envelope"></i> info@giantdogsug.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Giant Dogs Ug. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                }
+            });
+        });
+        
+        // Show/hide mobile menu button based on screen size
+        function updateMobileMenuButton() {
+            if (window.innerWidth <= 768) {
+                mobileMenuBtn.style.display = 'block';
+                nav.classList.remove('show');
+            } else {
+                mobileMenuBtn.style.display = 'none';
+                nav.classList.remove('show');
+            }
+        }
+        
+        window.addEventListener('resize', updateMobileMenuButton);
+        updateMobileMenuButton();
+    </script>
+</body>
+</html>
